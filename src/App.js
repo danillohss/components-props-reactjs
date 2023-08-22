@@ -1,14 +1,21 @@
-
-import './App.css';
-import Evento from './components/Evento';
-import Form from './components/Form';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Contato from './pages/Contato';
+import Empresa from './pages/Empresa';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Evento numero={5} />
-      <Form />
-    </div >
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/empresa" element={<Empresa />} />
+        <Route path="/contato" element={<Contato />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
